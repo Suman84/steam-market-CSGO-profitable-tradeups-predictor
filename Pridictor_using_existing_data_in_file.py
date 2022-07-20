@@ -1,5 +1,3 @@
-from bs4 import BeautifulSoup
-import requests
 import time
 import re
 # 70 -collection(actually 67),8-number of skins, 6-rarity, 5-wear
@@ -74,44 +72,6 @@ skins_price = [[[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0,
                [[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]],
                [[[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]], [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]]]
 
-user_agent_list = ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134',
-                   'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)',
-                   'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/5.0; KTXN)',
-                   'Mozilla/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Firefox/7.0.1',
-                   'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)',
-                   'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0',
-                   'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36',
-                   'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36 Edg/96.0.1054.62',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0',
-                   'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)',
-                   'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36',
-                   'Mozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; 125LA; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362',
-                   'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/21.0.1180.83 Safari/537.1',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36 Edge/14.14393',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.54 Safari/537.36',
-                   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18363']
-
 no_of_skins =[[1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1],
               [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1],
               [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1],
@@ -140,6 +100,7 @@ rarity = ['Common', 'Uncommon', 'Rare', 'Mythical', 'Legendary', 'Ancient']
 rarity_real = ['consumer','milspec','industrial','restricted','classified','covert']
 
 def testing_possibilities_different_collection():
+    global temp1, temp1
     total_collection = 50
     totalfound = 0
     file2 = open('skin_prices.txt', 'r')
@@ -148,11 +109,17 @@ def testing_possibilities_different_collection():
     for f2 in all_lines:
         all_data = all_data + f2
     file2.close()
+    file3 = open('output.txt','w')
     maxinput2  = input("enter max input in $(example: 5)")
     maxinput = float(maxinput2)
     margin2 = input("enter desired margin(example :20, i.e output are at least 20% more than input on average")
     margin = 1 + int(margin2)/100
     print('Testing every combination, might take a while....')
+    temp1 = 1
+    temp2 = 1
+    temp3 = 1
+    temp4 = 1
+    temp5 = 1
     for l2 in range(0, 68):
         for k2 in range(0, 5):
             for i2 in range(0, 5):
@@ -160,7 +127,19 @@ def testing_possibilities_different_collection():
                     for m2 in range(0, 7):
                         if skins_price[l2][k2 + 1][m2 + 1][i2] != 0:
                             count3 = count3 + 1
-                    no_of_skins[l2][k2 + 1] = count3
+
+                    if i2 == 0:
+                        temp1 = count3
+                    elif i2 == 1:
+                        temp2 = count3
+                    elif i2 == 2:
+                        temp3 = count3
+                    elif i2 == 3:
+                        temp4 = count3
+                    else:
+                        temp5 = count3
+            no_of_skins[l2][k2 + 1] = max(temp1, temp2, temp3, temp4, temp5)
+
     for n in range(0,total_collection):
         for m in range(0,total_collection-n):
             for l in range(1, total_collection-n-m):
@@ -214,8 +193,12 @@ def testing_possibilities_different_collection():
                                 if skins_price[m + n][k][j][i] != 0 and skins_price[l+m+n][k][j][i] != 0 and input1wear < maxinput: #input
                                     print("\nfound at setname=" + set_name[m+n] +" and " + set_name[l+m+n]+ ". rarity=" + rarity_real[k] + " no=" + str(j+1)
                                               + " wear=" + wear_name[i] )
+                                    file3.write("\nfound at setname=" + set_name[m+n] +" and " + set_name[l+m+n]+ ". rarity=" + rarity_real[k] + " no=" + str(j+1)
+                                              + " wear=" + wear_name[i])
                                     print('Possible number of outputs= ' + str(no_of_skins[m + n][k + 1]) + " + " + str(no_of_skins[l +m + n][k + 1]) + " = " + str(no_of_skins[m + n][k + 1]+no_of_skins[l +m + n][k + 1]))
+                                    file3.write('\nPossible number of outputs= ' + str(no_of_skins[m + n][k + 1]) + " + " + str(no_of_skins[l +m + n][k + 1]) + " = " + str(no_of_skins[m + n][k + 1]+no_of_skins[l +m + n][k + 1]))
                                     print('Names of inputs:')
+                                    #file3.write('\nNames of inputs:')
                                     totalfound = totalfound +1
                                     to_be_filtered1 = "Collection=" + set_name[m+n] + ", Wear=" + wear_name[i] + ", Rarity= " + \
                                                       rarity_real[k] + ", SN=" + str(j)
@@ -228,17 +211,29 @@ def testing_possibilities_different_collection():
                                         gun_name2 = all_data[all_data.find('#', index2) + 1:all_data.find('$', index2) + 5]
                                         print(gun_name1 + "x5 and " + gun_name2 + "x5")
                                     print("Total input(wear same):" + str(input1wear))
+                                    file3.write("\nTotal input(wear same):" + str(input1wear))
                                     print("Avg value of output:" + str(trueoutput))
+                                    file3.write("\nAvg value of output:" + str(trueoutput))
                                     print("Average Gain = " + str(((trueoutput / input1wear) - 1 )*100)  + "%")
+                                    file3.write("\nAverage Gain = " + str(((trueoutput / input1wear) - 1 )*100)  + "%")
                                     print("link for input1 for skin --" + gun_name1)
+                                    file3.write("\nlink for input1 for skin --" + gun_name1)
                                     print(link_for_input1)
+                                    file3.write("\n"+link_for_input1)
                                     print("link for input2 for skin --" + gun_name2)
+                                    file3.write("\nlink for input2 for skin --" + gun_name2)
                                     print(link_for_input2)
+                                    file3.write("\n"+link_for_input2)
                                     print("link for output:")
+                                    file3.write("\nlink for output:")
                                     print(link_for_output1)
+                                    file3.write("\n"+link_for_output1)
                                     print("link for output:")
+                                    file3.write("\nlink for output:")
                                     print(link_for_output2)
+                                    file3.write("\n"+link_for_output2+"\n\n")
     print("total found=" + str(totalfound))
+    file3.close()
     if totalfound == 0:
         print("try increasing input or decreasing margin :)")
 
@@ -411,6 +406,7 @@ print("Extracting prices stored in file....")
 get_prices_from_file_new()
 testing_possibilities_different_collection()
 print("If output skins lack any wear, the calculation will change so double check math yourself!")
+input()
 
 #valuesord = input("press 's' for same collection input and 'd' for 2 diff collection input:")
 #print(valuesord)
