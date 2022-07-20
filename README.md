@@ -12,6 +12,7 @@
 
 ### 2. Install required libraries with the following: only needed for extraction.
 pip install beautifulsoup4 
+
 pip install requests 
 
 ### 3.Delete old skin_prices.txt 
