@@ -3,7 +3,7 @@
 ## Uses beautifulSoup for data scraping.
 ## predicts profitable tradeups for csgo skins. 
 
-### All calculation might not always be correct, but should be good enough to point in write direction. 
+### All calculation might not always be correct, but should be good enough to point in right direction. 
 ### Run Predictor_using_existing_data_in_file.py to see how it works. 
 ### For latest data, delete everything inside skin_prices.txt and run names_and_prices_extractor_and_store_in_txtfile.py
 
