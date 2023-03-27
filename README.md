@@ -1,7 +1,7 @@
 # steam-market-CSGO-profitable-tradeups-predictor
 
 ## Uses beautifulSoup for data scraping.
-## predicts profitable tradeups for csgo skins. 
+## predicts profitable tradeups for csgo skins.(cant when skins have wear range other than 0-1) making this predictor not very useful)
 
 ### All calculation might not always be correct, but should be good enough to point in right direction. 
 ### Run Predictor_using_existing_data_in_file.py to see how it works. 
