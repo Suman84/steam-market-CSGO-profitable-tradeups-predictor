@@ -20,7 +20,7 @@ pip install requests
 ### 4.Run names_and_prices_extractor_and_store_in_txtfile.py. Output will be stored in a txt file.
 
 ## DISCLAIMER: This project is for educational purpose only and was developed during my time learning python. I wont be held responsible for any trouble it may cause.
-### I used my knowlegde of maths on how trade up works in csgo, which i am pretty sure is correct, but i highly recommend to check stuffs yourself and let me know if maths doesn't match up. 
+### I used my knowlegde of maths on how trade up works in csgo, which wasn't totally correct, hence, skins with different float range from 0-1 will have bad predictions. 
 ### Lastly, steam blocks any user from making too many requests in short interval of time,so program will wait periodically, hence, extraction will take a lot of time. 
 
 
